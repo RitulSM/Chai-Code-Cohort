@@ -31,4 +31,43 @@ function countProperties(user) {
     return num;
   }
   
-  
+  function mergeObjects(obj1, obj2) {
+    // Merge obj1 and obj2 into a single object
+    return Object.assign({}, obj1, obj2);
+  }
+  function objectToArray(obj) {
+    // Convert the object into an array of key-value pairs
+    var result = Object.entries(obj)
+    return result;
+  }
+  function cleanObject(obj) {
+    // Remove all properties with null or undefined values
+    Object.keys(obj).forEach(key => {
+    if (obj[key] === undefined||obj[key]===null) {
+      delete obj[key];
+    }
+  });
+  return obj
+  }
+  function deepClone(obj) {
+    // Return a deep copy of obj
+    const clone = JSON.parse(JSON.stringify(obj));
+    return clone
+  }
+    // You just need to implement the getNestedValue function
+function getNestedValue(obj, keyPath) {
+  // Return the value from the nested object based on keyPath
+ const keys = keyPath.split(".");
+
+  // Traverse the object using the keys
+  let value = obj;
+  for (const key of keys) {
+    if (value.hasOwnProperty(key)) {
+      value = value[key];
+    } else {
+      return "Key not found";
+    }
+  }
+  return value;
+}
+
